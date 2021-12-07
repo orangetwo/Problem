@@ -16,6 +16,8 @@
  */
 
 #include "iostream"
+#include "cmath"
+#define INT_MIN -2147483648
 
 struct TreeNode{
     int val;
@@ -58,20 +60,26 @@ TreeNode *buildBST(){
     return root;
 }
 
-// 中序遍历 如果遍历中出现 当前节点值比后续节点值大则返回false
-bool isValidBST(TreeNode *root){
 
-    if(root == nullptr) return true;
+class isValidBSTclass {
+    public:
+        // 中序遍历 如果遍历中出现 当前节点值比后续节点值大则返回false
+        bool isValidBST(TreeNode *root) {
 
-    if (!isValidBST(root->left) || pre >= root->val){
-        return false;
-    }
-    // TODO:
-    pre = root->val;
-    return isValidBST(root->right);
-}
+            if (root == nullptr) return true;
 
+            if (!isValidBST(root->left) || pre >= root->val) {
+                return false;
+            }
+            // TODO:
+            pre = root->val;
+            return isValidBST(root->right);
+        }
 
+    private:
+        int pre = INT_MIN;
+
+};
 
 int main() {
     //std::cout << "Hello, World!" << std::endl;
@@ -79,7 +87,7 @@ int main() {
     char alls[] = "abcdefgh";
     std::string one (alls, 30);
     std::cout << one <<" -> "<<std::endl;
-
+    static int pre = INT_MIN;
 
     return 0;
 }
