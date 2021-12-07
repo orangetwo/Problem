@@ -16,8 +16,7 @@
  */
 
 #include "iostream"
-#include "cmath"
-#define INT_MIN -2147483648
+#include "climits"
 
 struct TreeNode{
     int val;
