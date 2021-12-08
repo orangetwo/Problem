@@ -6,5 +6,6 @@ int main() {
     char alls[] = "abcdefgh";
     std::string one (alls, 30);
     std::cout << one <<" "<<one.size()<<std::endl;
+    std::cout << sizeof(int)<< std::endl;
     return 0;
 }
