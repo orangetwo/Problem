@@ -7,5 +7,7 @@ int main() {
     std::string one (alls, 30);
     std::cout << one <<" "<<one.size()<<std::endl;
     std::cout << sizeof(int)<< std::endl;
+
+    std::cout << int('9') << std::endl;
     return 0;
 }
