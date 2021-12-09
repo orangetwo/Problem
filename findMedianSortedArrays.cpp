@@ -56,10 +56,10 @@ __attribute__((unused)) unsigned long getKthLargestNum(vector<int> arr1, vector<
 double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
     auto totalLength = nums1.size() + nums2.size();
     if (totalLength % 2 == 1) {
-        return getKthLargestNum(nums1, nums2, (totalLength + 1) / 2);
+        return (double) getKthLargestNum(nums1, nums2, (totalLength + 1) / 2);
     }
     else {
-        return (getKthLargestNum(nums1, nums2, totalLength / 2) +getKthLargestNum(nums1, nums2, totalLength / 2 + 1)) / 2.0;
+        return (double) (getKthLargestNum(nums1, nums2, totalLength / 2) +getKthLargestNum(nums1, nums2, totalLength / 2 + 1)) / 2.0;
     }
 }
 
