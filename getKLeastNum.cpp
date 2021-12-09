@@ -38,6 +38,7 @@ int main(){
     // priority_queue<int, vector<int>, greater<int> > minvalue 小顶堆
     priority_queue<int> maxHeap; //默认大顶堆
 
-
+    vector<int> nums{2,3,4,5,6,7,8};
+    getKLeastNum(nums, 3);
     return 1;
 }
