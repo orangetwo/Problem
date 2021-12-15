@@ -3,7 +3,7 @@ project(Problem)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(main main.cpp searchRange_LeetCode34.cpp)
+add_executable(main main.cpp)
 add_executable(subOfLargeNumbers subOfLargeNumbers.cpp)
 add_executable(sortList sortList.cpp)
 add_executable(findMedianSortedArrays findMedianSortedArrays.cpp)
@@ -20,3 +20,4 @@ add_executable(binarySearch binarySearch.cpp)
 add_executable(moreThanHalfNum moreThanHalfNum.cpp)
 add_executable(pathSum_LeetCode437 pathSum_LeetCode437.cpp)
 add_executable(maxPathSum_LeetCode124 maxPathSum_LeetCode124.cpp)
+add_executable(searchRange_LeetCode34 searchRange_LeetCode34.cpp)

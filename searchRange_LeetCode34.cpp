@@ -10,8 +10,9 @@ class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
         vector<int> result{-1, -1};
-        if(nums.empty()) return result;
 
+        // 处理 special case
+        if(nums.empty()) return result;
         if (nums[0] > target) return result;
         if (nums[nums.size()-1] < target) return result;
 
@@ -25,8 +26,8 @@ public:
             else if (nums[midMin] < target) leftMin = midMin + 1;
             else rightMin = midMin - 1;
         }
-        if(nums[leftMin] == target) result[0] =leftMin;
-        else return result;
+        if(nums[leftMin] == target) result[0] = leftMin; // 数组中target最左边的位置
+        else return result; // 数组内不存在target
 
         target = target + 1;
 
@@ -41,8 +42,8 @@ public:
             else rightMax = midMax - 1;
         }
 
-        if(nums[leftMax] == target - 1) result[1] =leftMax;
-        else result[1] = leftMax -1;
+        if(nums[leftMax] == target - 1) result[1] =leftMax; // 数组中target+1最左边的位置
+        else result[1] = leftMax -1; // 数组红不存在target+1, leftMax指向第一个大于target+1的数
 
         return result;
 
