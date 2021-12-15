@@ -1,32 +1,34 @@
 //
-// Created by Orange on 2021/12/11.
+// Created by 李思 on 2021/12/11.
 //
 
 #include "iostream"
 #include "vector"
 using namespace std;
 
-int moreThanHalfNum(vector<int> nums){
-
+int moreThanHalfNum(vector<int> &nums){
     int count = 0;
-    int cur = -1;
+    int cur = 0;
 
     for(auto num: nums){
-        if(count == 0) {
+        if(count == 0){
             cur = num;
             count ++;
-        } else if(cur == num) {
+        } else if (num == cur){
             count ++;
-        } else if(cur != num){
+        } else if (num != cur){
             count --;
         }
     }
 
     return cur;
-
 }
 
 int main() {
-    cout<<endl;
+    cout << endl;
+    // vector<int> nums{1,2,3,2,2,2,5,4,2};
+    // vector<int> nums{3,3,3,3,2,2,2};
+    vector<int> nums{3};
+    int result = moreThanHalfNum(nums);
     return 0;
 }
