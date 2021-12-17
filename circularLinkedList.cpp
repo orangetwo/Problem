@@ -41,8 +41,6 @@ public:
 
         if(fast == nullptr) return nullptr; // if not, it indicate linked list is circular.
 
-        slow = fast->next;
-
         ListNode *root = head;
 
         int count = 0;
