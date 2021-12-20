@@ -3,6 +3,7 @@
 //
 
 #include "vector"
+#include "stack"
 using namespace std;
 
 // [0,1,0,2,1,0,1,3,2,1,2,1]
@@ -31,5 +32,31 @@ public:
             }
         }
         return ret;
+    }
+
+    int trapMonotonicStack(vector<int> &height){
+
+        stack<int> monoStack{};
+        int sum = 0;
+
+        for(auto i = 0; i < height.size(); i++){
+
+            while (!monoStack.empty() && height[monoStack.top()] < height[i]){
+                int top = monoStack.top();
+                monoStack.pop();
+
+                if(monoStack.empty()) break;
+
+                int distance = i - monoStack.top();
+                int minValue = min(height[monoStack.top()], height[i]);
+                sum += distance*(minValue - height[top] - 1);
+
+            }
+            monoStack.push(i);
+
+        }
+
+
+        return sum;
     }
 };
