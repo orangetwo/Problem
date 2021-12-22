@@ -13,15 +13,14 @@ public:
 
         memset(dp, 0, sizeof(dp));
 
-        for(int i=0; i < 6; i++) {dp[1][j] = 1;}
+        for(int i=0; i <= 6; i++) {dp[1][i] = 1;}
 
         for(int i = 2; i <= n; i ++){ // 代表骰子的数量
             for(int j = i; j <= 6*i; j ++){ // 代表的投掷点数
                 for(int cur = 1; cur <= 6; cur ++){
                     if(j - cur <= 0) {break;}
+                    dp[i][j] += dp[i-1][j-cur];
                 }
-
-                dp[i][j] += dp[i-1][j-cur];
             }
         }
 
