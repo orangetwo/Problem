@@ -2,7 +2,12 @@
 // Created by Orange on 2021/12/29.
 //
 
+/*
+ *  用stack可以解决问题
+ *  但是 如果 要求 space complexity O(1), 似乎不太ok
+ */
 #include "iostream"
+
 using namespace std;
 
 struct Node{
@@ -21,36 +26,27 @@ void preorderTravel(Node *root){
 
 }
 
-Node *flattenBinaryTree(Node *root){
-    if(root == nullptr) return nullptr;
 
-    Node *left = flattenBinaryTree(root->left);
-    Node *right = flattenBinaryTree(root->right);
+void flattenBinaryTree(Node *root){
+    if(root == nullptr) return;
 
-    if (left != nullptr && right != nullptr){
-        root->left = left;
-        root->right = nullptr;
-        left->left = right;
-    } else if(left != nullptr && right == nullptr){
-        root->left = left;
-        root->right = nullptr;
-        left->left = nullptr;
-    } else if(left == nullptr && right != nullptr){
-        root->left = right;
-        root->right = nullptr;
-    }
+    flattenBinaryTree(root->left);
+    flattenBinaryTree(root->right);
 
-    return root;
 
-}
+    if(root->left != nullptr){
+        Node *pre = root->left;
 
-void print(Node *root){
-    while(root){
-        cout << root->val << endl;
-        root = root->left;
+        while (pre->right != nullptr) pre = pre->right;
+
+        pre->right = root->right;
+        root->right = root->left;
+        root->left = nullptr;
     }
 
 }
+
+
 int main(){
     Node *A = new Node(nullptr, nullptr, 1);
     Node *B = new Node(nullptr, nullptr, 2);
@@ -69,9 +65,7 @@ int main(){
 
     flattenBinaryTree(A);
 
-    print(A);
-
-    return 1;
+    return 0;
 }
 
 /*
