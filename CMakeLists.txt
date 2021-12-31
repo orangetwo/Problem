@@ -35,3 +35,4 @@ add_executable(regularExpressionMatching regularExpressionMatching_LeetCode10.cp
 add_executable(flattenBinaryTree flattenBinaryTree.cpp)
 add_executable(levelOrder_LeetCode102 levelOrder_LeetCode102.cpp)
 add_executable(isSymmetric_LeetCode101 isSymmetric_LeetCode101.cpp)
+add_executable(inorderTraversal_LeetCode94 inorderTraversal_LeetCode94.cpp)
