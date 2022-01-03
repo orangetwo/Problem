@@ -26,6 +26,10 @@ void preorderTravel(Node *root){
 
 }
 
+/*
+ *  1. 将 root 的左子树和右子树拉平
+ *  2. 将 root 的右子树接到左子树下方，然后将整个左子树作为右子树。
+ */
 
 void flattenBinaryTree(Node *root){
     if(root == nullptr) return;
@@ -33,16 +37,26 @@ void flattenBinaryTree(Node *root){
     flattenBinaryTree(root->left);
     flattenBinaryTree(root->right);
 
+    Node *left = root->left;
+    Node *right = root->right;
 
-    if(root->left != nullptr){
-        Node *pre = root->left;
+    root->left = nullptr;
+    root->right = left;
 
-        while (pre->right != nullptr) pre = pre->right;
-
-        pre->right = root->right;
-        root->right = root->left;
-        root->left = nullptr;
+    Node *p = root;
+    while (p->right){
+        p = p->right;
     }
+    p->right = right;
+
+//
+//    if(root->left != nullptr){
+//        Node *pre = root->left;
+//        while (pre->right != nullptr) pre = pre->right;
+//        pre->right = root->right;
+//        root->right = root->left;
+//        root->left = nullptr;
+//    }
 
 }
 
