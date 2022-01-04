@@ -18,23 +18,26 @@ class solution{
 public:
     unordered_map<int, int> map;
 
-    TreeNode *reConstructBinaryTree(vector<int> pre, vector<int> vin){
-        for(vector<int>::size_type i = 0; i < vin.size(); i++){
-            map[vin[i]] = i;
+    TreeNode *reConstructBinaryTree(vector<int> preorder, vector<int> inorder){
+        for(vector<int>::size_type i = 0; i < inorder.size(); i++){
+            map[inorder[i]] = i;  // map value to index
         }
 
-        return reConstructBinaryTree(pre, 0, pre.size() -1, 0);
+        return reConstructBinaryTree(preorder, 0, preorder.size() -1, inorder, 0, inorder.size()-1);
     }
 
-    TreeNode *reConstructBinaryTree(vector<int> pre, int preL, int preR, int inL){
-        if(preL > preR) return nullptr;
 
-        TreeNode *root = new TreeNode(pre[preL]);
-        auto inIndex = map[root->val];
+    TreeNode *reConstructBinaryTree(vector<int> preorder, int preStart, int preEnd,
+                                    vector<int> inorder, int inStart, int inEnd){
+        if (preStart > preEnd) return nullptr;
 
-        auto leftTreesize = inIndex - inL;
-        root->left = reConstructBinaryTree(pre, preL + 1, preL + leftTreesize, inL);
-        root->right = reConstructBinaryTree(pre, preL + leftTreesize + 1, preR, inL + leftTreesize + 1);
+        int locationInInorder = map[preorder[preStart]];
+        TreeNode *root = new TreeNode(preorder[preStart]);
+
+        root->left = reConstructBinaryTree(preorder, preStart + 1, preStart + locationInInorder - inStart,
+                                           inorder, inStart, locationInInorder -1);
+        root->right = reConstructBinaryTree(preorder, preStart + locationInInorder - inStart + 1, preEnd,
+                                            inorder, locationInInorder +1, inEnd);
 
         return root;
     }
