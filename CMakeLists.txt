@@ -44,3 +44,5 @@ add_executable(constructMaximumBinaryTree_LeetCode654 constructMaximumBinaryTree
 add_executable(reConstructBinaryTree_LeetCode106 reConstructBinaryTree_LeetCode106.cpp)
 add_executable(findDuplicateSubtrees_LeetCode652 findDuplicateSubtrees_LeetCode652.cpp)
 add_executable(convertBST convertBST.cpp)
+add_executable(buySellStock buySellStock.cpp)
+add_executable(pathInMatrix pathInMatrix.cpp)
