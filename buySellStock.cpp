@@ -54,8 +54,40 @@ int maxProfit(vector<int> prices){
 }
 
 /*
- * k = 2时,
+ * k = 2时, base case:
  *          dp[i][0][0] = 0
  *          dp[i][0][1] = -∞
- *          dp[]
+ *          dp[-1][...][0] = 0
+ *          dp[-1][...][-1] = -∞
+ *         状态转移:
+ *          dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i-1])
+ *          dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i-1])
  */
+
+int maxProfitTwoTimes(vector<int> prices, int transactions){
+    int days = prices.size();
+    vector<vector<vector<int>>> dp(days, vector<vector<int>>(transactions + 1, vector<int>(2, 0)));
+
+    // base case
+    for(int day = 0; day < days; day ++){
+        dp[day][0][0] = 0;
+        dp[day][0][1] = INT_MIN;
+    }
+
+    // 状态转移
+    for(int day = 0; day < days; day ++){
+        for(int transaction = 1; transaction <= transactions; transaction ++){
+
+            if(day == 0){
+                dp[day][transaction][0] = 0;
+                dp[day][transaction][1] = -prices[day];
+                continue;
+            }
+
+            dp[day][transaction][0] = max(dp[day-1][transaction][0], dp[day-1][transaction][1] + prices[day]);
+            dp[day][transaction][1] = max(dp[day-1][transaction][1], dp[day-1][transaction - 1][0] - prices[day]);
+
+        }
+    }
+    return dp[days-1][transactions][0];
+}
