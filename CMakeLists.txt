@@ -46,3 +46,4 @@ add_executable(findDuplicateSubtrees_LeetCode652 findDuplicateSubtrees_LeetCode6
 add_executable(convertBST convertBST.cpp)
 add_executable(buySellStock buySellStock.cpp)
 add_executable(pathInMatrix pathInMatrix.cpp)
+add_executable(minPathSum_LeetCode64 minPathSum_LeetCode64.cpp)
