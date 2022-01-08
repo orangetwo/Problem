@@ -34,7 +34,6 @@ int largestRectangleArea_old(vector<int> &height){
 }
 
 
-
 int main(){
     vector<int> test{2,1,5,6,2,3};
     largestRectangleArea_old(test);
