@@ -52,3 +52,4 @@ add_executable(largestRectangleArea_LeetCode84 largestRectangleArea_LeetCode84.c
 add_executable(wordBreak_LeetCode139 wordBreak_LeetCode139.cpp)
 add_executable(minWindow_LeetCode76 minWindow_LeetCode76.cpp)
 add_executable(lengthOfLongestSubstring_LeetCode3 lengthOfLongestSubstring_LeetCode3.cpp)
+add_executable(maxEnvelopes_LeetCode354 maxEnvelopes_LeetCode354.cpp)
