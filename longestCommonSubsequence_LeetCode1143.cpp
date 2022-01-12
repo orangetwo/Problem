@@ -24,7 +24,6 @@ int longestCommonSubsequence(string text1, string text2) {
 
         }
     }
-
     return dp[text1.size()][text2.size()];
 }
 
