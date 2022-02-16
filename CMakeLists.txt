@@ -3,7 +3,7 @@ project(Problem)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(binarySearch binarySearch.cpp)
+add_executable(binarySearch binarySearch.cpp singleNonDuplicate_LeetCode540.cpp)
 add_executable(main main.cpp)
 add_executable(subOfLargeNumbers subOfLargeNumbers.cpp)
 add_executable(sortList sortList.cpp)
@@ -59,3 +59,4 @@ add_executable(kthSmallest_LeetCode230 kthSmallest_LeetCode230.cpp)
 add_executable(longestValidParentheses_LeetCode32 longestValidParentheses_LeetCode32.cpp)
 add_executable(maxSubArray_LeetCode53 maxSubArray_LeetCode53.cpp)
 add_executable(maxProduct_LeetCode152 maxProduct_LeetCode152.cpp)
+add_executable(singleNonDuplicate_LeetCode540 singleNonDuplicate_LeetCode540.cpp)
